@@ -1,0 +1,97 @@
+:root {
+  font-family: "Consolas";
+	--font-size-Kopfzeile: 2em;
+	--table-head-padding-top-bottom: 8px;
+	--h3-pixel-size: 22px;
+	--tablehead-height: 55px;
+}
+
+.Kopfzeile {
+  background-color: #ea6f18;
+  width: 98.5%;
+  color: white;
+  font-size: var(--font-size-Kopfzeile);
+  font-weight: bold;
+}
+
+.Kopftext {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	padding-left: 1rem;
+}
+
+/* Sortable tables */
+table.sortable thead {
+  background-color: #666;
+  color: #fff;
+  font-weight: bold;
+  cursor: default;
+}
+
+table.sortable
+  th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+  content: " \25B4\25BE";
+}
+
+.tableFixHead {
+	overflow-y: auto;
+	height: calc(100vh - var(--font-size-Kopfzeile) - var(--h3-pixel-size) - var(--tablehead-height) - (2 * var(--table-head-padding-top-bottom)) - 10px);
+}
+
+.tableFixHead thead th {
+	position: sticky;
+	top: 0;
+}
+
+.tableFixHead,
+.tableFixHead td {
+	padding: 0 4px;
+	/* box-shadow: inset 1px -1px #000; */
+}
+
+.tableFixHead th {
+	box-shadow: inset 1px 1px #000, 0 1px #000;
+}
+
+table {
+	width: 99.5%;
+}
+
+th {
+	padding: var(--table-head-padding-top-bottom) 16px;
+	background: #666;
+}
+
+td {
+	vertical-align: top;
+	height: 4rem;
+}
+
+#cockpit tr:nth-child(even) {
+	background-color: #f0f0f0;
+}
+
+#cockpit tr:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+#cockpit tr:hover {
+	background: rgba(174, 253, 181, 0.4);
+}
+
+.mark {
+	border-right: 8px solid red;
+}
+
+
+@media  print {
+	:root {
+		--tablehead-height: 0;
+	}
+
+	table.sortable
+  th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+  	content: "";
+	}
+}
